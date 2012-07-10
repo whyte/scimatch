@@ -1,0 +1,2 @@
+{"markers":[ { "latitude":60.7973333, "longitude":12.0502107, "title":"Something", "content":"This is nice" }, 
+{ "latitude":60.6969943, "longitude":11.9865, "title":"Somewhere", "content":"Is this nice?" } ]}
