@@ -15,32 +15,44 @@ db = DatabaseConnection.DatabaseConnection()
 # ========================
 Base = db.Base
 
-class UserTable(Base):
-	__tablename__ = 'user_table'
+class User(Base):
+	__tablename__ = 'user'
+	__table_args__ = {'autoload' : True}
+
+class Availability(Base):
+	__tablename__ = 'availability'
+	__table_args__ = {'autoload' : True}
+
+class UserAvailability(Base):
+	__tablename__ = 'user_availability'
 	__table_args__ = {'autoload' : True}
 
 class UserEvent(Base):
 	__tablename__ = 'user_event'
 	__table_args__ = {'autoload' : True}
 
-class EventTable(Base):
-	__tablename__ = 'event_table'
+class Event(Base):
+	__tablename__ = 'event'
 	__table_args__ = {'autoload' : True}
 
-class LanguageTable(Base):
-	__tablename__ = 'language_table'
+class Language(Base):
+	__tablename__ = 'language'
 	__table_args__ = {'autoload' : True}
 
-class ExpertiseTable(Base):
-	__tablename__ = 'expertise_table'
+class Expertise(Base):
+	__tablename__ = 'expertise'
 	__table_args__ = {'autoload' : True}
 
-class ActivityTable(Base):
-	__tablename__ = 'activity_table'
+class Activity(Base):
+	__tablename__ = 'activity'
 	__table_args__ = {'autoload' : True}
 
-class AudienceTable(Base):
-	__tablename__ = 'audience_table'
+class Audience(Base):
+	__tablename__ = 'audience'
+	__table_args__ = {'autoload' : True}
+
+class UserAudience(Base):
+	__tablename__ = 'user_audience'
 	__table_args__ = {'autoload' : True}
 
 class ActivityAudience(Base):
@@ -51,8 +63,8 @@ class LanguageOffered(Base):
 	__tablename__ = 'language_offered'
 	__table_args__ = {'autoload' : True}
 
-class LanguageSought(Base):
-	__tablename__ = 'language_sought'
+class EventLanguage(Base):
+	__tablename__ = 'event_language'
 	__table_args__ = {'autoload' : True}
 
 class ExpertiseOffered(Base):
