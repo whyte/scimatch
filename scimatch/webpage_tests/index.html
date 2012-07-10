@@ -24,14 +24,30 @@
 					}}); 
 				}).load();
 				
-				$('#search').submit(function() {
+				$('#filter_params').submit(function(e) {
+				    
                   $('#map_canvas').gmap('clear', 'markers');
+                  // Line below just gets the querystring
+                  var querystr = $('#filter_params').serialize();
+                  console.log(querystr)
+
+                  // if we need to make an object from the query string uncomment below
+                  // var values = {};
+                  // inputs.each(function() {
+                  //     values[this.name] = $(this).val();
+                  // });
+                  
+                  // Remove the comment on the following line which appends the querystring from the form and sends it to the AJAX service
+                  //$.getJSON( 'URL_OF_THE_QUERY?'+querystr, function(data) { 
+                  //Comment out the next line
                   $.getJSON( 'places2.js', function(data) { 
                           $.each( data.markers, function(i, m) {
-                                  $('#map_canvas').gmap('addMarker', { 'position': new google.maps.LatLng(m.latitude, m.longitude), 'bounds':true } );
+                                  $('#map_canvas').gmap('addMarker', { 'position': new google.maps.LatLng(m.latitude, m.longitude), 'bounds':true } ).click(function() {$('#map_canvas').gmap('openInfoWindow', { 'content': m.content }, this);});
+                                  
                           });
                   });
                   return false;
+                  e.preventDefault()
                 });
 				
 			});
@@ -48,21 +64,23 @@
 				<div class="item rounded dark">
 					<div id="map_canvas" class="map rounded"></div>
 				</div>
-	<form id="search">
-    <ul>
-        <li><input type="checkbox" id="outreach" name="outreach"/> Outreach</li>
-        <li>
-            <select>
-                <option>English</option>
-                <option>Cymraeg</option>
-                <option>Deutsch</option>
-                <option>Francais</option>
-            </select>
-        </li>
-    </ul>
-    <input type="submit" value="Find astronomers!">
-    </form>
-    	</article>
+            	<form id="filter_params">
+                <ul>
+                    <li><input type="checkbox" id="outreach" name="outreach"/> Outreach</li>
+                    <li>
+                        <select name="lang">
+                            <option>English</option>
+                            <option>Cymraeg</option>
+                            <option>Deutsch</option>
+                            <option>Francais</option>
+                        </select>
+                    </li>
+                </ul>
+                <input type="submit" value="Find astronomers!">
+                </form>
+                <table>
+                </table>
+            </article>
     </div>
 	</body>
 </html>
