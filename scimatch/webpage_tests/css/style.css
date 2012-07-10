@@ -8,7 +8,7 @@ h2 { font-size: 1.2em; }
 h3 { font-size: 1.1em; }
 a:link, a:focus, a:visited { color: #008595; text-decoration: none; }
 a:hover { text-decoration: underline; }
-p { margin: 0 0 1em; }
+p { margin: 0 0 1em; font-size:0.9em;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
 header { position:fixed; top:0; z-index:99999; width:100%; color:#fff; padding:1em; margin-bottom:2em; }
@@ -21,6 +21,7 @@ li { list-style: none inside none; display: block; margin: 0 0 0.2em; }
 li.sel  a { color:#fff; }
 
 /** General */
+.large{font-size:1em;}
 .content { padding:1.5em; margin:0 0 1.5em; }
 .dark { border:2px }
 .bluehead { background:#819FF7 }
