@@ -15,12 +15,60 @@ db = DatabaseConnection.DatabaseConnection()
 # ========================
 Base = db.Base
 
-class CamelCase(Base):
-	__tablename__ = 'camel_case'
+class UserTable(Base):
+	__tablename__ = 'user_table'
 	__table_args__ = {'autoload' : True}
 
-class Table2(Base):
-	__tablename__ = 'table2_name'
+class UserEvent(Base):
+	__tablename__ = 'user_event'
+	__table_args__ = {'autoload' : True}
+
+class EventTable(Base):
+	__tablename__ = 'event_table'
+	__table_args__ = {'autoload' : True}
+
+class LanguageTable(Base):
+	__tablename__ = 'language_table'
+	__table_args__ = {'autoload' : True}
+
+class ExpertiseTable(Base):
+	__tablename__ = 'expertise_table'
+	__table_args__ = {'autoload' : True}
+
+class ActivityTable(Base):
+	__tablename__ = 'activity_table'
+	__table_args__ = {'autoload' : True}
+
+class AudienceTable(Base):
+	__tablename__ = 'audience_table'
+	__table_args__ = {'autoload' : True}
+
+class ActivityAudience(Base):
+	__tablename__ = 'activity_audience'
+	__table_args__ = {'autoload' : True}
+
+class LanguageOffered(Base):
+	__tablename__ = 'language_offered'
+	__table_args__ = {'autoload' : True}
+
+class LanguageSought(Base):
+	__tablename__ = 'language_sought'
+	__table_args__ = {'autoload' : True}
+
+class ExpertiseOffered(Base):
+	__tablename__ = 'expertise_offered'
+	__table_args__ = {'autoload' : True}
+
+class ExpertiseSought(Base):
+	__tablename__ = 'expertise_sought'
+	__table_args__ = {'autoload' : True}
+
+class ActivityOffered(Base):
+	__tablename__ = 'activity_offered'
+	__table_args__ = {'autoload' : True}
+
+class ActivitySought(Base):
+	__tablename__ = 'activity_sought'
 	__table_args__ = {'autoload' : True}
 
 
