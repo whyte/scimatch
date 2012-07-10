@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
    <head>
-		<title>Astroglocal - matching making astronomers and everyone else</title>
+		<title>astro glocal - bringing the astronomy community together for a better world</title>
 		<link type="text/css" rel="stylesheet" href="css/960/min/960.css" />
 		<link type="text/css" rel="stylesheet" href="css/960/min/960_16_col.css" />
 		<link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -16,13 +16,14 @@
 						var self = this;
 						$.getJSON( 'places.js', function(data) { 
 							$.each( data.markers, function(i, marker) {
-								self.addMarker({ 'position': new google.maps.LatLng(marker.latitude, marker.longitude), 'bounds':true } ).click(function() {
+								self.addMarker({ 'position': new google.maps.LatLng(marker.latitude, marker.longitude) } ).click(function() {
 									self.openInfoWindow({ 'content': marker.content }, this);
 								});
 							});
 						});
 					}}); 
 				}).load();
+				$('#map_canvas').gmap('option', 'zoom', 2);
 				
 				$('#filter_params').submit(function(e) {
 				    
@@ -54,32 +55,93 @@
         </script>
     </head>
     <body>
-		<header class="dark">
+		<header class="bluehead">
 			<div class="container_16">
-				<h1>Astroglocal - matching making astronomers and everyone else</h1>
+				<h1>astro glocal <strong>bringing the astronomy community together for a better world</strong></h1>
 			</div>
 		</header>
 		<div class="container_16">
+		    <div class="grid_16">
+		        <p>Do you have some astronomical skills to offer the world, or would you like to find a skilled person to help with an event or activity? Then use this platform to connect with the global astronomy community. </p>
+	        </div>
+	        <div class="grid_16" style="padding:5px;"></div>
+		    <div class="grid_5">
+                <h3 class="fancybtngrey">
+                  <a href="user_form/user_form.html">Join</a>
+                </h3>
+                <p>
+                  create your profile and share your skills or request support
+                </p>
+              </div>
+              <!-- end .grid_4 -->
+              <div class="grid_6">
+                <h3 class="fancybtngrey"><a href="epo_event_form/epo_event_form.html">Add</a></h3>
+                <p>update us with your whereabouts and travel plans</p>
+              </div>
+              <!-- end .grid_4 -->
+              <div class="grid_5">
+                <h3 class="fancybtngrey">
+                  <a href="#filter_params">Find</a>
+                </h3>
+                <p>find out what activities and people are in your area
+                </p>
+              </div>
+              <!-- end .grid_4 -->
+              <div class="grid_16" style="padding:5px;"></div>
 			<article class="grid_16">
 				<div class="item rounded dark">
-					<div id="map_canvas" class="map rounded"></div>
+					<div id="map_canvas" class="map rounded" style="width:100%;height:500px;"></div>
 				</div>
+				<h2>Search by:  </h2>
             	<form id="filter_params">
+            	<div class="grid_5">
+            	<h3>Activities</h3>
                 <ul>
-                    <li><input type="checkbox" id="outreach" name="outreach"/> Outreach</li>
-                    <li>
-                        <select name="lang">
-                            <option>English</option>
-                            <option>Cymraeg</option>
-                            <option>Deutsch</option>
-                            <option>Francais</option>
-                        </select>
-                    </li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/> Public talk</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/> Teacher training / workshops</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/> University career centre visit</li>
+                      <li><input type="checkbox" id="outreach" name="outreach"/> Learner workshops</li>
+                     <li><input type="checkbox" id="outreach" name="outreach"/>   Colloquia</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Short-term mentor relationship</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Long-term mentor relationship</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Lecture series</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Classroom visit</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Star Party</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Skype chat/web engagement</li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Ask an Astronomer  </li>
+                    <li><input type="checkbox" id="outreach" name="outreach"/>    Translations</li>  
+                </ul>
+                </div>
+                
+                <div class="grid_5">
+                <h3>Expertise</h3>
+                <ul>
+                <li><input type="checkbox" id="outreach" name="outreach"/> Astronomy (general)</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/> Naked eye / backyard / small scope observing</li>
+                 <li><input type="checkbox" id="outreach" name="outreach"/>   Computer Sci / Programming</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Instrumentation</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Math</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Physics</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Career advice</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Gender balance advice</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Art, music and design     </li>             
+                </ul>
+                </div>
+                
+                <div class="grid_5">
+                <h3>Audience</h3>
+                <ul>
+                <li><input type="checkbox" id="outreach" name="outreach"/> Preschool (&lt;5 yr)</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/> Primary school (5 - 10 yr)</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Secondary school  (11 - 18 yr)</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Higher Education - Undergraduate</li>
+                 <li><input type="checkbox" id="outreach" name="outreach"/>   Higher Education - Graduate</li>
+                 <li><input type="checkbox" id="outreach" name="outreach"/>   General Public</li>
+                <li><input type="checkbox" id="outreach" name="outreach"/>    Amateur astronomy community / Astronomy enthusiasts</li>
                 </ul>
                 <input type="submit" value="Find astronomers!">
                 </form>
-                <table>
-                </table>
+                </div>
             </article>
     </div>
 	</body>
